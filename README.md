@@ -1,2 +1,2 @@
-# The-Auracle-portfolio-website-
+# The-Auracle
 An ambitious web developer 
