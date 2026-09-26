@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="The Auracle — Website Developer, Coder and Digital Creator.">
+  <meta name="keywords" content="The Auracle, website developer, coder, frontend developer, HTML, CSS, JavaScript">
+  <meta name="author" content="The Auracle">
+
+  <title>The Auracle 🔥 | Website Developer & Coder</title>
+
+  <style>
+    :root {
+      --bg: #020814;
+      --bg2: #061426;
+      --card: #071a2d;
+      --cyan: #12c8ff;
+      --blue: #087fff;
+      --purple: #765cff;
+      --white: #f5f9ff;
+      --muted: #9db1c9;
+      --border: rgba(35, 170, 255, 0.2);
+      --glow: 0 0 35px rgba(0, 174, 255, 0.25);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 80% 10%, rgba(0, 153, 255, 0.14), transparent 30%),
+        radial-gradient(circle at 10% 35%, rgba(74, 71, 255, 0.10), transparent 30%),
+        linear-gradient(180deg, #020814, #031326 55%, #020914);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image:
+        linear-gradient(rgba(20, 190, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 190, 255, 0.2) 1px, transparent 1px);
+      background-size: 55px 55px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, 1180px);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(2, 8, 20, 0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: #d7e5f5;
+      font-size: 0.92rem;
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .hire-btn {
+      border: 1px solid var(--cyan);
+      border-radius: 30px;
+      padding: 9px 18px;
+      box-shadow: var(--glow);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      padding: 130px 0 70px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .small-title {
+      color: var(--cyan);
+      font-size: 0.85rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -4px;
+      margin: 15px 0;
+    }
+
+    .blue-text {
+      color: var(--cyan);
+      text-shadow: 0 0 25px rgba(0, 200, 255, 0.25);
+    }
+
+    .hero h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      margin-bottom: 15px;
+    }
+
+    .hero h2 span {
+      color: var(--cyan);
+    }
+
+    .hero-description {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 21px;
+      border-radius: 10px;
+      border: 1px solid var(--cyan);
+      font-weight: bold;
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--glow);
+    }
+
+    .btn-primary {
+      background: linear-gradient(100deg, #09b4fa, #087fff);
+      color: #03101b;
+    }
+
+    .btn-secondary {
+      background: rgba(0, 20, 40, 0.7);
+    }
+
+    .email-line {
+      margin-top: 25px;
+      color: var(--muted);
+    }
+
+    .email-line a {
+      color: var(--cyan);
+    }
+
+    /* HERO VISUAL */
+
+    .hero-visual {
+      position: relative;
+      min-height: 500px;
+      display: grid;
+      place-items: center;
+    }
+
+    .code-card {
+      width: 95%;
+      background: linear-gradient(145deg, #071a2e, #030e1c);
+      border: 1px solid rgba(20, 150, 255, 0.35);
+      border-radius: 16px;
+      padding: 25px;
+      transform: rotate(-3deg);
+      box-shadow:
+        0 35px 80px rgba(0, 0, 0, 0.55),
+        0 0 50px rgba(0, 150, 255, 0.1);
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #ff5264;
+    }
+
+    .dot:nth-child(2) {
+      background: #ffc34f;
+    }
+
+    .dot:nth-child(3) {
+      background: #37dc91;
+    }
+
+    .code {
+      font-family: Consolas, monospace;
+      font-size: 0.9rem;
+      line-height: 2;
+      color: #d8eafa;
+    }
+
+    .keyword {
+      color: #55b8ff;
+    }
+
+    .string {
+      color: #62e5b3;
+    }
+
+    .value {
+      color: #d99aff;
+    }
+
+    /* PROFILE ICON */
+
+    .profile-icon {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      width: 125px;
+      height: 125px;
+      padding: 5px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--blue), var(--purple));
+      box-shadow: 0 0 40px rgba(0, 174, 255, 0.35);
+      z-index: 3;
+    }
+
+    .profile-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 18%;
+      border-radius: 50%;
+      border: 3px solid #03101d;
+    }
+
+    .tech-badge {
+      position: absolute;
+      right: -10px;
+      top: 80px;
+      padding: 10px 18px;
+      border: 1px solid var(--cyan);
+      border-radius: 30px;
+      background: rgba(3, 20, 38, 0.92);
+      color: #dff4ff;
+      z-index: 4;
+      font-size: 0.8rem;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 100px 0;
+      border-top: 1px solid rgba(100, 180, 255, 0.08);
+    }
+
+    .section-label {
+      color: var(--cyan);
+      font-weight: bold;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h3.section-heading {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.05;
+      margin: 10px 0 40px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .check-list {
+      margin-top: 25px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .check {
+      color: #dceafa;
+    }
+
+    .check span {
+      color: var(--cyan);
+      margin-right: 10px;
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .skill-card {
+      padding: 25px;
+      background: linear-gradient(145deg, #071b2e, #04101d);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      transition: 0.25s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 190, 255, 0.5);
+      box-shadow: var(--glow);
+    }
+
+    .skill-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(0, 160, 255, 0.1);
+      color: var(--cyan);
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      background: #061527;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transition: 0.25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 70px rgba(0,0,0,0.45);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+    }
+
+    .project-info {
+      padding: 21px;
+    }
+
+    .project-info p {
+      color: var(--muted);
+      margin: 7px 0 15px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 20px;
+      color: #c5d9ec;
+      font-size: 0.72rem;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      text-align: center;
+      padding: 65px 25px;
+      border: 1px solid rgba(20, 180, 255, 0.3);
+      border-radius: 25px;
+      background:
+        radial-gradient(circle at center, rgba(0, 125, 220, 0.2), transparent 65%),
+        #031321;
+      box-shadow: inset 0 0 70px rgba(0, 130, 255, 0.06);
+    }
+
+    .contact-box p {
+      max-width: 650px;
+      margin: 15px auto 20px;
+      color: var(--muted);
+    }
+
+    .email {
+      display: inline-block;
+      color: var(--cyan);
+      font-size: clamp(1.15rem, 3vw, 1.55rem);
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      color: #7389a2;
+      font-size: 0.85rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        padding: 25px;
+        background: #020914;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-visual {
+        min-height: 450px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-icon {
+        width: 90px;
+        height: 90px;
+      }
+
+      .tech-badge {
+        top: 55px;
+        font-size: 0.7rem;
+      }
+
+      .code-card {
+        width: 100%;
+        padding: 18px;
+      }
+
+      .code {
+        font-size: 0.7rem;
+      }
+
+      .about-image img {
+        height: 350px;
+      }
+
+      .project-card img {
+        height: 230px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <header>
+    <div class="container nav">
+
+      <a href="#home" class="logo">
+        The Auracle <span>🔥</span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn">
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="hire-btn">Contact Me</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="container hero-grid">
+
+        <div>
+
+          <div class="small-title">
+            Website Developer & Coder
+          </div>
+
+          <h1>
+            The <span class="blue-text">Auracle</span> 🔥
+          </h1>
+
+          <h2>
+            I Build <span>Digital Experiences</span>
+          </h2>
+
+          <p class="hero-description">
+            I'm a website developer and coder who creates modern,
+            responsive and professional websites. I turn ideas into
+            real digital experiences using clean code and creative design.
+          </p>
+
+          <div class="buttons">
+
+            <a href="#projects" class="btn btn-primary">
+              &lt;/&gt; View My Projects
+            </a>
+
+            <a href="mailto:hisauracle@gmail.com" class="btn btn-secondary">
+              ✉ Contact Me
+            </a>
+
+          </div>
+
+          <div class="email-line">
+            ✉
+            <a href="mailto:hisauracle@gmail.com">
+              hisauracle@gmail.com
+            </a>
+          </div>
+
+        </div>
+
+
+        <!-- CODE / PROFILE VISUAL -->
+
+        <div class="hero-visual">
+
+          <div class="profile-icon">
+            <img
+              src="images/profile.jpg"
+              alt="The Auracle"
+            >
+          </div>
+
+          <div class="tech-badge">
+            &lt;/&gt; Code • Create • Build
+          </div>
+
+          <div class="code-card">
+
+            <div class="window-dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+
+            <pre class="code"><span class="keyword">const</span> developer = {
+  name: <span class="string">"The Auracle"</span>,
+  role: <span class="string">"Website Developer"</span>,
+  skills: [
+    <span class="string">"HTML"</span>,
+    <span class="string">"CSS"</span>,
+    <span class="string">"JavaScript"</span>
+  ],
+  passion: <span class="string">"Coding"</span>,
+  goal: <span class="string">"Build the future"</span>
+};</pre>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="section-label">
+          01 — About Me
+        </div>
+
+        <h3 class="section-heading">
+          Turning Ideas Into<br>
+          Beautiful Websites
+        </h3>
+
+        <div class="about-grid">
+
+          <div class="about-image">
+
+            <img
+              src="images/coding.jpg"
+              alt="The Auracle coding"
+            >
+
+          </div>
+
+          <div class="about-text">
+
+            <p>
+              I'm a passionate website developer who loves coding,
+              solving problems and creating digital solutions.
+            </p>
+
+            <p>
+              I focus on creating websites that look modern,
+              work smoothly and provide a great experience on
+              phones, tablets and computers.
+            </p>
+
+            <p>
+              I'm continuously learning new technologies and
+              improving my coding skills so I can turn creative
+              ideas into real websites.
+            </p>
+
+            <div class="check-list">
+
+              <div class="check">
+                <span>✓</span>
+                Clean & organized code
+              </div>
+
+              <div class="check">
+                <span>✓</span>
+                Responsive website design
+              </div>
+
+              <div class="check">
+                <span>✓</span>
+                Modern user interfaces
+              </div>
+
+              <div class="check">
+                <span>✓</span>
+                Creative problem solving
+              </div>
+
+              <div class="check">
+                <span>✓</span>
+                Always learning & improving
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+      <div class="container">
+
+        <div class="section-label">
+          02 — My Skills
+        </div>
+
+        <h3 class="section-heading">
+          Tools I Use To Build.
+        </h3>
+
+        <div class="skills-grid">
+
+          <div class="skill-card">
+
+            <div class="skill-icon">
+              HTML
+            </div>
+
+            <h3>HTML</h3>
+
+            <p>
+              Building structured and accessible web pages.
+            </p>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <div class="skill-icon">
+              CSS
+            </div>
+
+            <h3>CSS</h3>
+
+            <p>
+              Creating modern layouts, animations and visual effects.
+            </p>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <div class="skill-icon">
+              JS
+            </div>
+
+            <h3>JavaScript</h3>
+
+            <p>
+              Adding interaction and dynamic functionality to websites.
+            </p>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <div class="skill-icon">
+              UI
+            </div>
+
+            <h3>Responsive Design</h3>
+
+            <p>
+              Websites that adapt beautifully to different screen sizes.
+            </p>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <div class="skill-icon">
+              &lt;/&gt;
+            </div>
+
+            <h3>Frontend Development</h3>
+
+            <p>
+              Turning designs and ideas into working web interfaces.
+            </p>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <div class="skill-icon">
+              ⚡
+            </div>
+
+            <h3>Problem Solving</h3>
+
+            <p>
+              Finding practical and creative solutions through code.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+      <div class="container">
+
+        <div class="section-label">
+          03 — Projects
+        </div>
+
+        <h3 class="section-heading">
+          Things I've Been Building.
+        </h3>
+
+        <div class="projects-grid">
+
+
+          <article class="project-card">
+
+            <img
+              src="images/code.jpg"
+              alt="Coding project"
+            >
+
+            <div class="project-info">
+
+              <h3>
+                Developer Interfaces
+              </h3>
+
+              <p>
+                Modern interfaces designed around clean code,
+                usability and professional visual design.
+              </p>
+
+              <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="project-card">
+
+            <img
+              src="images/programming.jpg"
+              alt="Programming project"
+            >
+
+            <div class="project-info">
+
+              <h3>
+                Programming Projects
+              </h3>
+
+              <p>
+                Practical projects created while developing
+                programming and problem-solving skills.
+              </p>
+
+              <div class="tags">
+                <span class="tag">Coding</span>
+                <span class="tag">Frontend</span>
+                <span class="tag">Development</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="project-card">
+
+            <img
+              src="images/developer.jpg"
+              alt="Website development"
+            >
+
+            <div class="project-info">
+
+              <h3>
+                Responsive Websites
+              </h3>
+
+              <p>
+                Websites designed to provide a smooth experience
+                across mobile, tablet and desktop devices.
+              </p>
+
+              <div class="tags">
+                <span class="tag">Responsive</span>
+                <span class="tag">UI</span>
+                <span class="tag">Web</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="project-card">
+
+            <img
+              src="images/tech.jpg"
+              alt="Technology project"
+            >
+
+            <div class="project-info">
+
+              <h3>
+                Digital Experiences
+              </h3>
+
+              <p>
+                Creative technology concepts combining design,
+                coding and digital storytelling.
+              </p>
+
+              <div class="tags">
+                <span class="tag">Design</span>
+                <span class="tag">Technology</span>
+                <span class="tag">Creative</span>
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="contact-box">
+
+          <div class="section-label">
+            04 — Contact
+          </div>
+
+          <h3 class="section-heading">
+            Let's Build Something Great.
+          </h3>
+
+          <p>
+            Have a website idea, collaboration or digital project?
+            Get in touch and let's turn your idea into something real.
+          </p>
+
+          <a
+            class="email"
+            href="mailto:hisauracle@gmail.com"
+          >
+            hisauracle@gmail.com
+          </a>
+
+          <br>
+
+          <a
+            class="btn btn-primary"
+            href="mailto:hisauracle@gmail.com?subject=Website%20Project"
+          >
+            ✉ Send Me An Email
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container footer-content">
+
+      <span>
+        © 2026 The Auracle. All rights reserved.
+      </span>
+
+      <span>
+        Website Developer • Coder • Digital Creator
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+      navLinks.classList.toggle("open");
+    });
+
+
+    document.querySelectorAll(".nav-links a").forEach(function(link) {
+
+      link.addEventListener("click", function() {
+        navLinks.classList.remove("open");
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
